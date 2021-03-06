@@ -7,19 +7,20 @@ import {
   Button,
   Alert,
   ToastAndroid,
-  FlatList
+  FlatList,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from './components/Header';
 import Time from './components/Time';
+import Registration from './components/Registration';
 
 export default App = () => {
   const [name, setName] = useState('nicht gesetzt');
   const [items, setItems] = useState(null);
 
   useEffect(() => {
-    if(items!=null)
+    if (items != null)
       AsyncStorage.setItem('Anmeldungen', JSON.stringify(items)).then(() =>
         AsyncStorage.getItem('Anmeldungen').then((data) => {
           Alert.alert('Wrote: ' + JSON.stringify(data));
@@ -64,11 +65,20 @@ export default App = () => {
             if (items != null)
               setItems([
                 ...items,
-                {key: name, time: new Date().toLocaleString()},
+                {itemName: name, time: new Date().toLocaleString()},
               ]);
-            else setItems([{key: name, time: new Date().toLocaleString()}]);
+            else
+              setItems([{itemName: name, time: new Date().toLocaleString()}]);
           }}
         />
+        <Button
+          title="Elemente Leeren"
+          color="red"
+          onPress={() => {
+              setItems([]);
+          }}
+        />
+
         <View
           style={{
             borderBottomColor: 'orange',
@@ -80,10 +90,11 @@ export default App = () => {
         <FlatList
           data={items}
           renderItem={({item}) => (
-            <View style={{padding: 5}}>
-              <Text style={styles.itemTime}>{item.time}</Text>
-              <Text style={styles.item}>{item.key}</Text>
-            </View>
+            <Registration
+              id={item.id}
+              registeredName={item.itemName}
+              registrationTime={item.time}
+            />
           )}
         />
       </View>
@@ -97,14 +108,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     height: 40,
     marginBottom: 20,
-  },
-  itemTime: {
-    fontSize: 17,
-    color: 'darkorange',
-  },
-  item: {
-    fontSize: 20,
-    borderBottomColor: 'darkorange',
-    borderBottomWidth: 1,
   },
 });
