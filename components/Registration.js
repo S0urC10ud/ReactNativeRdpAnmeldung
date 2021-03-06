@@ -13,7 +13,13 @@ export default class Registration extends React.Component {
         <Text style={this.styles.itemTime}>{this.props.registrationTime}</Text>
         <View style={this.styles.item}>
           <Text style={this.styles.itemText}>{this.props.registeredName}</Text>
-          <Button color="red" title={'X'} />
+          <Button
+            color="red"
+            title={'X'}
+            onPress={() => {
+              this.props.delete(this.props.id);
+            }}
+          />
         </View>
       </View>
     );
@@ -23,17 +29,17 @@ export default class Registration extends React.Component {
     itemTime: {
       fontSize: 17,
       color: 'darkorange',
+      flex: 1,
     },
     itemText: {
       fontSize: 20,
-      width:'90%',
       borderBottomColor: 'darkorange',
       borderBottomWidth: 1,
+      flex: 6,
     },
     item: {
       alignItems: 'stretch',
-      flex: 2,
-      flexDirection: 'row'
-      },
+      flexDirection: 'row',
+    },
   });
 }
