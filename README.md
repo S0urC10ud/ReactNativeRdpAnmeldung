@@ -1,4 +1,4 @@
-# ReactNativeRdpAnmeldungTest
+# ReactNativeRdpAnmeldung
 Sharing my first react native project based on a school-based React project.
 _This app is created for educational purposes only and has no real use except for providing a neat way to get familiar with the way React Native works._
 
