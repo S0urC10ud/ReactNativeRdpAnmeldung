@@ -17,7 +17,7 @@ export default App = () => {
       AsyncStorage.setItem('Anmeldungen', JSON.stringify(items)).then(() =>
         AsyncStorage.getItem('Anmeldungen').then((data) => {
           Alert.alert('Wrote: ' + JSON.stringify(data));
-        }),
+        })
       );
   }, [items]);
 

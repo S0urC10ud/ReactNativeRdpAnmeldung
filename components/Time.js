@@ -6,11 +6,7 @@ export default function () {
 
   setInterval(() => setCurrentTime(new Date().toLocaleString()), 1000);
 
-  return (
-    <View>
-      <Text style={styles.headerText}>{currentTime}</Text>
-    </View>
-  );
+  return <Text style={styles.headerText}>{currentTime}</Text>;
 }
 
 const styles = StyleSheet.create({
