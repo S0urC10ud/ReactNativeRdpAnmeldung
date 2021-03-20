@@ -4,7 +4,7 @@ _This app is created for educational purposes only and has no real use except fo
 
 ## Brief introduction
 This is just an entry-level project for learning React Native. It is similar to a Todo-List as Items can be added/removed of a `FlatList`. 
-The data is persisted with out encryption to the local storage by using the AsyncStorage-Community-Repository.
+The data is persisted without encryption to the local storage by using the AsyncStorage-Community-Repository.
 
 ## Getting started
 If you are using npm, you can run the following commands if you have set up React Native correctly with a virtual Android-Device: https://reactnative.dev/docs/environment-setup
